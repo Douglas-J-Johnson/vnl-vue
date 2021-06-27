@@ -2,7 +2,7 @@
     <div id="actor">
         <li>
             <div class="card">
-            <img :src="actor.person.image.medium" class="card-img-top" alt="image">
+            <img :src="actorImageURL" class="card-img-top" alt="image">
                 <div class="card-body">
                     <h5 class="card-title">{{ actor.person.name }}</h5>
                 </div>
@@ -16,6 +16,18 @@ export default {
     name: "Actor",
     props: {
         actor: Object
+    },
+    computed: {
+        actorImageURL: function () {
+            let imageURL = 'https://prepsec.org/wp-content/uploads/2017/09/unknown-person-icon-Image-from.png';
+
+            if (this.actor.person.image?.medium) {
+                imageURL = this.actor.person.image.medium;
+            }
+
+            console.log(imageURL);
+            return imageURL;
+        }
     }
 }
 </script>
@@ -27,8 +39,22 @@ export default {
         padding: 0;
     }
 
+    .card {
+        height: 100%;
+        opacity: 0.5;
+    }
+
+    .card:hover {
+        opacity: 1;
+    }
+
+    .card-img-top {
+        height: 80%;
+    }
+
     li {
         width: 100%;
+        height: 100%;
     }
 
     h5 {
