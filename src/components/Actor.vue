@@ -1,6 +1,6 @@
 <template>
     <div id="actor">
-        <li>
+        <li @click="selectActor">
             <div class="card">
             <img :src="actorImageURL" class="card-img-top" alt="image">
                 <div class="card-body">
@@ -18,15 +18,19 @@ export default {
         actor: Object
     },
     computed: {
-        actorImageURL: function () {
+        actorImageURL() {
             let imageURL = 'https://prepsec.org/wp-content/uploads/2017/09/unknown-person-icon-Image-from.png';
 
             if (this.actor.person.image?.medium) {
                 imageURL = this.actor.person.image.medium;
             }
 
-            console.log(imageURL);
             return imageURL;
+        }
+    },
+    methods: {
+        selectActor() {
+            this.$emit('selectActor', this.actor.person.id);
         }
     }
 }

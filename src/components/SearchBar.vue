@@ -32,5 +32,6 @@ export default {
     width: 80%;
     margin: 1rem;
     padding: 0.5rem;
+    text-align: center;
   }
 </style>

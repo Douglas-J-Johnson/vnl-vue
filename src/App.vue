@@ -1,7 +1,10 @@
 <template>
   <div id="app">
     <SearchBar @executeSearch="executeSearch"></SearchBar>
-    <ActorsList :actors="actors"></ActorsList>
+    <ActorsList
+      :actors="actors"
+      @selectActor="selectActor"
+    ></ActorsList>
   </div>
 </template>
 
@@ -32,7 +35,11 @@ export default {
           this.actors = response.data;
           this.actors.forEach(actor => console.log(JSON.parse(JSON.stringify(actor))));
         });
-    }
+    },
+    selectActor(actorID) {
+      console.log('App', actorID)
+      this.$emit('selectActor', actorID);
+    } 
   }
 }
 </script>

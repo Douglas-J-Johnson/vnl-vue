@@ -1,7 +1,11 @@
 <template>
     <div class="actors-list">
         <ul>
-            <Actor v-for="actor in actors" :key="actor.id" :actor="actor"></Actor>
+            <Actor v-for="actor in actors"
+                :key="actor.id"
+                :actor="actor"
+                @selectActor="selectActor"
+            ></Actor>
         </ul>
     </div>
 </template>
@@ -16,6 +20,11 @@ export default {
     },
     components: {
         Actor
+    },
+    methods: {
+        selectActor(actorID) {
+            this.$emit('selectActor', actorID);
+        }
     }
 }
 </script>
