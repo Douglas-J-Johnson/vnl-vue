@@ -22,10 +22,18 @@ export default {
 
 <style scoped>
     #actors-list {
-        width: 80%;
+        padding: 0;
+        width: 100%;
     }
 
     ul {
-        padding: 0px;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: stretch;
+        list-style-type: none;
     }
 </style>

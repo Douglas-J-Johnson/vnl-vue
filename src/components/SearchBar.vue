@@ -22,13 +22,15 @@ export default {
 <style scoped>
   #search-bar {
     width: 100%;
-    padding: 0.5rem;
+    padding: 0;
     display: flex;
     justify-content: center;
+    align-items: center;
   }
 
   input {
     width: 80%;
+    margin: 1rem;
     padding: 0.5rem;
   }
 </style>
