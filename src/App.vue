@@ -1,28 +1,41 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <SearchBar @executeSearch="executeSearch"></SearchBar>
+    <ActorsList :actors="actors"></ActorsList>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import axios from 'axios';
+import SearchBar from './components/SearchBar.vue';
+import ActorsList from './components/ActorsList';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    SearchBar,
+    ActorsList
+  },
+  data() {
+    return {
+      actors: [],
+    };
+  },
+  methods: {
+    executeSearch(searchTerm) {
+      axios.get('http://api.tvmaze.com/search/people', {
+          params: {
+            q: searchTerm
+          }
+        })
+        .then(response => {
+          this.actors = response.data;
+          this.actors.forEach(actor => console.log(JSON.parse(JSON.stringify(actor))));
+        });
+    }
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 </style>
