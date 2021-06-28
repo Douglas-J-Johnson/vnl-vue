@@ -51,7 +51,7 @@ export default {
       this.selectedActor = selectedActor;
     },
     resetSearch() {
-      
+      console.log('App', 'Reset Search')
     },
     hasActorSelected() {
       return Object.keys(this.selectedActor).length > 0;

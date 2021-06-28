@@ -10,7 +10,7 @@ export default {
   props: {
   },
   methods: {
-    executeSearch: function (event) {
+    executeSearch(event) {
       if (event.keyCode === 13) {
         this.$emit('executeSearch', event.target.value);
       }
