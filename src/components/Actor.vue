@@ -30,7 +30,7 @@ export default {
     },
     methods: {
         selectActor() {
-            this.$emit('selectActor', this.actor.person.id);
+            this.$emit('selectActor', this.actor.person);
         }
     }
 }

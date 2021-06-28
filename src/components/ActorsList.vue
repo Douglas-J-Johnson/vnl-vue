@@ -22,8 +22,8 @@ export default {
         Actor
     },
     methods: {
-        selectActor(actorID) {
-            this.$emit('selectActor', actorID);
+        selectActor(selectedActor) {
+            this.$emit('selectActor', selectedActor);
         }
     }
 }
