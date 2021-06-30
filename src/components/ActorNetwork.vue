@@ -1,6 +1,5 @@
 <template>
     <div id="actor-network">
-        Actor Network
         <div id="actor-description">
             <SelectedActor
                 :selectedActor="selectedActor"
@@ -29,14 +28,15 @@ export default {
         selectedActor: Object
     },
     methods: {
-        resetSearch() {
-            console.log("reset search")
-            this.$emit('resetSearch');
-        }
+        resetSearch() { this.$emit('resetSearch'); }
     }
 }
 </script>
 
 <style scoped>
-
+    #actor-description {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 </style>

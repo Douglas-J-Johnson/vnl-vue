@@ -1,7 +1,7 @@
 <template>
     <div id="selected-actor">
-        Selected Actor
-        {{ selectedActor.id }}
+        <h2>{{ selectedActor.name }}</h2>
+        <img id="selected-actor-image" :src="selectedActor.image.original" alt="image"/>
     </div>
 </template>
 
@@ -15,4 +15,14 @@ export default {
 </script>
 
 <style scoped>
+    #selected-actor {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #selected-actor-image {
+        width: 50%;
+        margin: 1rem;
+    }
 </style>

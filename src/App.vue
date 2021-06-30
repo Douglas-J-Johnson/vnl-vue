@@ -31,12 +31,15 @@ export default {
   },
   data() {
     return {
+      searchTerm: "",
       actors: [],
       selectedActor: {}
     };
   },
   methods: {
     executeSearch(searchTerm) {
+      this.searchTerm = searchTerm;
+
       axios.get('http://api.tvmaze.com/search/people', {
           params: {
             q: searchTerm
@@ -51,7 +54,8 @@ export default {
       this.selectedActor = selectedActor;
     },
     resetSearch() {
-      console.log('App', 'Reset Search')
+      console.log('Last Search Term', this.searchTerm);
+      this.selectedActor = {};
     },
     hasActorSelected() {
       return Object.keys(this.selectedActor).length > 0;
