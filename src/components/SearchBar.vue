@@ -1,6 +1,11 @@
 <template>
     <div id="search-bar">
-    <input placeholder="Enter name and press <enter> to search" @keyup="executeSearch"/>
+    <input
+      placeholder="Enter name and press <enter> to search"
+      :value="searchTerm"
+      @keyup="executeSearch"
+      @input="updateSearchTerm"
+    />
   </div>
 </template>
 
@@ -8,12 +13,16 @@
 export default {
   name: 'SearchBar',
   props: {
+    searchTerm: String
   },
   methods: {
     executeSearch(event) {
       if (event.keyCode === 13) {
         this.$emit('executeSearch', event.target.value);
       }
+    },
+    updateSearchTerm(event) {
+      this.$emit('updateSearchTerm', event.target.value);
     }
   }
 }

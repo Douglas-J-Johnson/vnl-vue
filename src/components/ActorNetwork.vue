@@ -1,6 +1,6 @@
 <template>
     <div id="actor-network">
-        <div id="actor-description">
+        <section id="actor-description" class="odd-section">
             <SelectedActor
                 :selectedActor="selectedActor"
             ></SelectedActor>
@@ -12,7 +12,10 @@
                     Search Again
                 </button>
             </div>
-        </div>
+        </section>
+        <section id="actor-shows" class="even-section">
+            <h1>Shows</h1>
+        </section>
     </div>
 </template>
 
@@ -38,5 +41,15 @@ export default {
         display: flex;
         flex-direction: column;
         align-items: center;
+    }
+
+    .odd-section {
+        margin: 1rem;
+        background-color: #fff;
+    }
+
+    .even-section {
+        margin: 1rem;
+        background-color: #eee;
     }
 </style>

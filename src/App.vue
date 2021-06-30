@@ -1,7 +1,11 @@
 <template>
   <div id="app">
     <div v-if="!hasActorSelected()" id="search">
-      <SearchBar @executeSearch="executeSearch"></SearchBar>
+      <SearchBar
+        :searchTerm="searchTerm"
+        @executeSearch="executeSearch"
+        @updateSearchTerm="updateSearchTerm">
+      </SearchBar>
       <ActorsList
         :actors="actors"
         @selectActor="selectActor"
@@ -59,6 +63,9 @@ export default {
     },
     hasActorSelected() {
       return Object.keys(this.selectedActor).length > 0;
+    },
+    updateSearch(searchTerm) {
+      this.searchTerm =searchTerm;
     }
   }
 }
