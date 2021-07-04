@@ -64,8 +64,8 @@ export default {
     hasActorSelected() {
       return Object.keys(this.selectedActor).length > 0;
     },
-    updateSearch(searchTerm) {
-      this.searchTerm =searchTerm;
+    updateSearchTerm(searchTerm) {
+      this.searchTerm = searchTerm;
     }
   }
 }

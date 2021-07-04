@@ -14,18 +14,23 @@
             </div>
         </section>
         <section id="actor-shows" class="even-section">
-            <h1>Shows</h1>
+            <ActorShows
+                :actorID="selectedActor.id"
+            ></ActorShows>
+
         </section>
     </div>
 </template>
 
 <script>
 import SelectedActor from './SelectedActor'
+import ActorShows from './ActorShows'
 
 export default {
     name: "ActorNetwork",
     components: {
-        SelectedActor
+        SelectedActor,
+        ActorShows
     },
     props: {
         selectedActor: Object
