@@ -1,5 +1,5 @@
 <template>
-    <div id="actor">
+    <div class="actor">
         <li @click="selectActor">
             <div class="card">
             <img :src="actorImageURL" class="card-img-top" alt="image">
@@ -37,7 +37,7 @@ export default {
 </script>
 
 <style scoped>
-    #actor {
+    .actor {
         width: 10rem;
         margin: 1rem;
         padding: 0;

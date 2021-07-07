@@ -2,16 +2,24 @@
     <div id="actor-shows">
         <h1>Shows</h1>
         <ul>
+            <Show></Show>
         </ul>
     </div>
 </template>
 
 <script>
+import Show from "./Show"
+
 export default {
     name: "ActorShows",
     props: {
         actorID: Number
-    }
+    },
+    components: {
+        Show
+    },
+    computed: {},
+    methods: {}
 }
 </script>
 
